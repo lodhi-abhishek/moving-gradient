@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+  --animate-blob: blob 8s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  --animate-blob-reverse: blob 10s infinite cubic-bezier(0.215, 0.61, 0.355, 1)
+    reverse;
+  --bg-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --bg-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  @keyframes blob {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    30% {
+      transform: rotate(40deg);
+    }
+    50% {
+      transform: translate(300px, 390px) scale(1.1);
+    }
+    80% {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+@layer base {
+  @property --color-a {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+  }
+  @property --color-b {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+  }
+  @property --color-c {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: transparent;
+  }
+}
+
+@layer components {
+  .range {
+    appearance: none;
+    width: 100%;
+    background: white;
+    height: 2px;
+  }
+  .range::-webkit-slider-thumb {
+    appearance: none;
+    background: var(--color-b);
+    border: 2px solid white;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    cursor: pointer;
+  }
+  .range::-moz-range-thumb {
+    appearance: none;
+    background: var(--color-b);
+    border: 2px solid white;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    cursor: pointer;
+  }
+}
